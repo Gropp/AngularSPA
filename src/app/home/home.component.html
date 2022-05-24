@@ -19,29 +19,46 @@
         </button>
     </mat-toolbar>
 
-    <div>
-        <spa-alunos [valorInicial]="valor"></spa-alunos>
-
-        <button type="button" (click)="mudarValor()">Mudar Valor</button>
-        <button type="button" (click)="reiniciarValor()">Reiniciar Valor</button>
-        <button type="button" (click)="exibirTabela()">Exibir Tabela</button>
+    <mat-grid-list cols="1" rowHeight="100px">
+        <mat-grid-tile
+            [colspan]=1
+            [rowspan]=1
+            [style.background]="'lightgray'">
+                <spa-alunos [valorInicial]="valor"></spa-alunos>
+        </mat-grid-tile>
+    </mat-grid-list>
+    <br/>
+    <div class="button-row">
+        <button mat-raised-button type="button" (click)="mudarValor()">Mudar Valor</button>
+        <button mat-raised-button type="button" (click)="reiniciarValor()">Reiniciar Valor</button>
+        <button mat-raised-button type="button" (click)="exibirTabela()">Exibir Tabela</button>
     </div>
-
-    <table *ngIf="exibeTabela" class="mat-elevation-z8">
-        <tr>
-            <th mat-header-cell >Nome</th>
-            <th mat-header-cell >Idade</th>
-            <th mat-header-cell >Email</th>
-            <th mat-header-cell >Curso</th>
-        </tr>
-        <tr *ngFor="let aluno of listaAlunos">
-            <td mat-cell>{{aluno.nome}}</td>
-            <td mat-cell>{{aluno.idade}}</td>
-            <td mat-cell>{{aluno.email}}</td>
-            <td mat-cell>{{aluno.curso}}</td>
-        </tr>
-    </table>
-
-    <spa-professores></spa-professores>
+    <br/>
+    <mat-divider></mat-divider>
+    <br/>
+    <div>
+        <table *ngIf="exibeTabela">
+            <tr>
+                <th mat-header-cell >Nome</th>
+                <th mat-header-cell >Idade</th>
+                <th mat-header-cell >Email</th>
+                <th mat-header-cell >Curso</th>
+            </tr>
+            <tr *ngFor="let aluno of listaAlunos">
+                <td mat-cell>{{aluno.nome}}</td>
+                <td mat-cell>{{aluno.idade}}</td>
+                <td mat-cell>{{aluno.email}}</td>
+                <td mat-cell>{{aluno.curso}}</td>
+            </tr>
+        </table>
+        <br/>
+        <mat-divider></mat-divider>
+        <br/>
+    </div>
+        
+    <div>
+        <spa-professores></spa-professores>
+    </div>
+    
 </body>
 

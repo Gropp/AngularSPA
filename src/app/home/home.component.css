@@ -2,11 +2,27 @@
     flex: 1 1 auto;
   }
 
-  table {
-    width: 100%;
-  }
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
 
-  button {
-    border: 0;
-    margin-right: 4px;
-  }
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 6px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+
+button {
+  border: 0;
+}
+
+.button-row {
+  display: table-cell;
+  width: 700px;
+}
