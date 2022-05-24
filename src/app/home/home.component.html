@@ -1,1 +1,47 @@
-<p>home works!</p>
+<body>
+    <mat-toolbar>
+        <button type="button" mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>menu</mat-icon>
+        </button>
+
+        <mat-menu #menu="matMenu">
+            <button type="button" mat-menu-item>Item1</button>
+            <button type="button" mat-menu-item>Item2</button>
+        </mat-menu>
+
+        <span>My first SPA</span>
+        <span class="example-spacer"></span>
+        <button type="button" mat-icon-button class="example-icon favorite-icon" aria-label="Example icon-button with heart icon">
+        <mat-icon>favorite</mat-icon>
+        </button>
+        <button type="button" mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
+        <mat-icon>share</mat-icon>
+        </button>
+    </mat-toolbar>
+
+    <div>
+        <spa-alunos [valorInicial]="valor"></spa-alunos>
+
+        <button type="button" (click)="mudarValor()">Mudar Valor</button>
+        <button type="button" (click)="reiniciarValor()">Reiniciar Valor</button>
+        <button type="button" (click)="exibirTabela()">Exibir Tabela</button>
+    </div>
+
+    <table *ngIf="exibeTabela" class="mat-elevation-z8">
+        <tr>
+            <th mat-header-cell >Nome</th>
+            <th mat-header-cell >Idade</th>
+            <th mat-header-cell >Email</th>
+            <th mat-header-cell >Curso</th>
+        </tr>
+        <tr *ngFor="let aluno of listaAlunos">
+            <td mat-cell>{{aluno.nome}}</td>
+            <td mat-cell>{{aluno.idade}}</td>
+            <td mat-cell>{{aluno.email}}</td>
+            <td mat-cell>{{aluno.curso}}</td>
+        </tr>
+    </table>
+
+    <spa-professores></spa-professores>
+</body>
+
